@@ -22,7 +22,7 @@ public class DrivetrainSubsystem extends Subsystem {
 
     @Override
     protected void initDefaultCommand() {
-
+        setDefaultCommand(new Drive());
     }
 
     private DrivetrainSubsystem() {
