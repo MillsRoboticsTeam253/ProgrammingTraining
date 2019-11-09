@@ -22,15 +22,18 @@ public class Drive extends Command {
 
     @Override 
     protected void execute(){
-        double left = joystickL.getY();
-        double right = joystickR.getY();
+        double leftY = joystickL.getY();
+        double rightY = joystickR.getY();
 
-        Robot.drivetrain.drive(left, right);
+        double leftX = joystickL.getX();
+        double rightX = joystickR.getX();
+
+        Robot.drivetrain.drive(leftY, rightY, leftX, rightX);
     }
 
     @Override
     protected void end(){
-        Robot.drivetrain.drive(0, 0);
+        Robot.drivetrain.drive(0, 0, 0, 0);
     }
 
     @Override

@@ -28,11 +28,18 @@ public class DrivetrainSubsystem extends Subsystem {
     private DrivetrainSubsystem() {
         leftMotorB.follow(leftMotorA);
         rightMotorB.follow(rightMotorA);
+
+        rightMotorA.setInverted(true);
+        rightMotorB.setInverted(true);
     }
 
-    public void drive(double left, double right) {
-        leftMotorA.set(ControlMode.PercentOutput, left);
-        rightMotorA.set(ControlMode.PercentOutput, right);
-           
+    public void drive(double leftY, double rightY, double leftX, double rightX) {
+        if (Math.abs(leftY) > 0.2 && Math.abs(rightY) > 0.2){
+            leftMotorA.set(ControlMode.PercentOutput, leftY / 2);
+            rightMotorA.set(ControlMode.PercentOutput, rightY / 2);
+        } else{
+            leftMotorA.set(ControlMode.PercentOutput, (leftY + leftX) / 2);
+            rightMotorA.set(ControlMode.PercentOutput, -(rightY + rightX) / 2);
+        }
     }
 }
