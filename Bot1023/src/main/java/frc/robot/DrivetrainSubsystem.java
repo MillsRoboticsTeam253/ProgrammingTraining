@@ -1,17 +1,17 @@
 package frc.robot;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class DrivetrainSubsystem extends Subsystem {
 
-    private TalonSRX
-        leftMotorA = new TalonSRX(Constants.leftMotorA),
-        leftMotorB = new TalonSRX(Constants.leftMotorB),
-        rightMotorA = new TalonSRX(Constants.rightMotorA),
-        rightMotorB = new TalonSRX(Constants.rightMotorB);
+    private VictorSPX
+        leftMotorA = new VictorSPX(Constants.leftMotorA),
+        leftMotorB = new VictorSPX(Constants.leftMotorB),
+        rightMotorA = new VictorSPX(Constants.rightMotorA),
+        rightMotorB = new VictorSPX(Constants.rightMotorB);
         
 
     private static DrivetrainSubsystem instance;

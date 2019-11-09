@@ -2,9 +2,9 @@ package frc.robot;
 
 public class Constants {
     public static final int 
-        leftMotorA = 0,
-        leftMotorB = 1,
-        rightMotorA = 2,
-        rightMotorB = 3;
+        leftMotorA = 1,
+        leftMotorB = 2,
+        rightMotorA = 3,
+        rightMotorB = 5;
     
 }

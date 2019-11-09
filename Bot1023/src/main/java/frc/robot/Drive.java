@@ -1,24 +1,29 @@
 package frc.robot;
 
-import edu.wpi.first.wpilibj.XboxController;
-import edu.wpi.first.wpilibj.GenericHID.Hand;
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.command.Command;
 
 public class Drive extends Command {
 
-    private XboxController xboxcontroller; 
+   private Joystick joystickL;
+   private Joystick joystickR;
+
+   public Drive(){
+    requires(Robot.drivetrain);
+   }
 
     @Override
     protected void initialize() {
-        xboxcontroller = new XboxController(1);
+        joystickL = new Joystick(2);
+        joystickR = new Joystick(3);
 
-        requires(Robot.drivetrain);
+        
     }
 
     @Override 
     protected void execute(){
-        double left = xboxcontroller.getY(Hand.kLeft);
-        double right = xboxcontroller.getY(Hand.kRight);
+        double left = joystickL.getY();
+        double right = joystickR.getY();
 
         Robot.drivetrain.drive(left, right);
     }
